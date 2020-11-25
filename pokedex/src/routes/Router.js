@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import React from 'react';
-import HomePage from "../pages/HomePage/HomePage";
-import PokedexPage from "../pages/PokedexPage/PokedexPage";
-import DetailsPage from "../pages/DetailsPage/DetailsPage";
+import HomePage from "../pages/homePage/homePage";
+import PokedexPage from "../pages/pokedexPage/pokedexPage";
+import DetailsPage from "../pages/detailsPage/detailsPage";
 
 
 
