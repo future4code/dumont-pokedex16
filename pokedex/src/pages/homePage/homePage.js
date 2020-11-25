@@ -27,7 +27,7 @@ const Home = () => {
 
   const pokemonsPokeCard = pokemonList.map((pokemon) => {
     return (
-          <PokeCard key={pokemon.name} pokemonName={pokemon.name} pokemonURL={pokemon.url} />
+          <PokeCard name= {pokemon.name} />
       )
   })
   
