@@ -1,7 +1,11 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios'
 
-import styled from 'styled-components'
+
+
 
 const MainContainer = styled.div`
   display: flex;
@@ -26,10 +30,33 @@ const ButtonContainer = styled.div`
 `
 
 
-export const PokeCard = () => {
+export function PokeCard(props) {
+  const history = useHistory();
+  const [pokemonImage, setPokemonImage] = useState();
+
+  
+  
+
+  const getPokemonImage = (pokemon) => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${props.name}`)
+      .then((resposta) => {
+        setPokemonImage(resposta.data.sprites.front_default);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+  useEffect(() => {
+    getPokemonImage();
+  }, []);
+
   return (
-      <MainContainer>
-          <p>pokecard</p>
+      <MainContainer
+        backgroundImage={props.backgroundImage}>
+        <img src={pokemonImage} />
+        <h3>{props.name}</h3>
           <ButtonContainer>
               <button>adicionar</button>
               <Link to={'/details'}>
