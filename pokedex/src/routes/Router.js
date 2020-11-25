@@ -16,7 +16,7 @@ function Router() {
           <Route exact path="/pokedex">
             <PokedexPage />
           </Route>
-          <Route exact path="/pokedex/details/:id">
+          <Route exact path="/details">
             <DetailsPage />
           </Route>
           <Route>
